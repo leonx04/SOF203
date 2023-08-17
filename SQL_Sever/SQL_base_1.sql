@@ -1,0 +1,33 @@
+--Tao table 
+CREATE TABLE NhanVien (
+	ID_NhanVien INT  PRIMARY KEY,
+	Ho_NV NVARCHAR(50) NULL,
+	Ten_NV VARCHAR(50) NOT NULL,
+	Nam_Sinh DATE NOT NULL,
+	Dia_Chi NVARCHAR(100) NOT NULL,
+	Luong INT NOT NULL,
+	PHG CHAR(5) NULL
+);
+
+CREATE TABLE PhongBan(
+	Ma_PB INT PRIMARY KEY,
+	Ten_PB NVARCHAR(40) NOT NULL,
+	Ma_TruongPhong INT NOT NULL,
+);
+CREATE  TABLE QuanLy_DuAn(
+	Ma_DA INT PRIMARY KEY,
+	Ma_NV INT ,
+	Ngay_ThaM_Gia DATE NOT NULL,
+	Ngay_Ket_Thuc DATE NOT NULL,
+	So_Gio INT  NOT NULL,
+	Vai_Tro NVARCHAR(30),
+
+);
+
+CREATE TABLE Du_An(
+	Ma_DuAn INT PRIMARY KEY,
+	Ten_DuAN NVARCHAR(40),
+	Ngay_BatDau Date NOT NULL,
+	Ngay_KetThuc Date NOT NULL
+)
+

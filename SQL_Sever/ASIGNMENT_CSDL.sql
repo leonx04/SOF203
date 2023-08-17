@@ -1,0 +1,36 @@
+CREATE TABLE LoaiSach(
+	Maloaisach INT PRIMARY KEY ,
+	Tenloaisach NVARCHAR(50)
+)
+
+CREATE TABLE Sach(
+	MaSach INT PRIMARY KEY,
+	TieuDe NVARCHAR(50) NOT NULL,
+	NhaXB NVARCHAR(50) NOT NULL,
+	Tacgia  NVARCHAR(30) NOT NULL,
+	Sotrang INT NOT NULL,
+	Soluongbandau INT NOT NULL,
+	Giatien INT NOT NULL,
+	Ngaynhapkho DATE NOT NULL,
+	Vitrisach NVARCHAR(40) NOT NULL,
+	MaLoaiSach INT ,
+	FOREIGN KEY (MaLoaiSach) REFERENCES LoaiSach(MaLoaisach)
+)
+
+CREATE TABLE The_SinhVien (
+	Ma_SV INT PRIMARY KEY,
+	Ten_SV NVARCHAR(50) NOT NULL,
+	Ngay_HetHan DATE NOT NULL,
+	Chuyen_Nghanh NVARCHAR(30) NOT NULL,
+	Email NVARCHAR(30) NOT NULL,
+	So_Dien_Thoai INT NOT NULL
+)
+CREATE TABLE Phieu_Muon(
+	So_Phieu INT PRIMARY KEY,
+	Ma_SV INT ,
+	MaSach INT ,
+	Ngay_MuonSach DATE NOT NULL,
+	Ngay_TraSach DATE NOT NULL
+	FOREIGN KEY(Ma_SV) REFERENCES The_SinhVien,
+	FOREIGN KEY(MaSach) REFERENCES Sach
+)
